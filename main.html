@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HSRS Momentum Cars Assoc. - Work in Progress</title>
+    <style>
+        body {
+            background-color: #000000;
+            margin: 0;
+            height: 100vh;
+            font-family: 'Courier New', Courier, monospace;
+            overflow: hidden;
+            position: relative;
+            color: #ffffff;
+        }
+
+        /* --- UKŁAD ZE SZKICU --- */
+        .header {
+            position: absolute;
+            top: 40px;
+            right: 50px;
+            text-align: right;
+        }
+
+        .header .hsrs {
+            font-size: 2.2rem;
+            font-weight: normal;
+            margin: 0;
+            letter-spacing: 2px;
+        }
+
+        .header .momentum {
+            font-size: 1.4rem;
+            color: #00FF00;
+            margin: 5px 0 0 0;
+        }
+
+        .center-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            font-size: 1.6rem;
+            line-height: 1.4;
+        }
+
+        /* --- ANIMACJA I DROGA --- */
+        .road {
+            position: absolute;
+            bottom: 30px;
+            width: 100%;
+            height: 1px;
+            background-color: #1a1a1a;
+        }
+
+        @keyframes drive {
+            0% { left: 100%; }
+            100% { left: -200px; }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(-360deg); }
+        }
+
+        .civic {
+            position: absolute;
+            bottom: 30px;
+            width: 160px;
+            height: 60px;
+            /* Domyślny kolor, nadpisywany poniżej */
+            --car-color: #fff; 
+        }
+
+        /* Ustawienia poszczególnych aut (kolory i timing) */
+        .civic-1 { 
+            --car-color: #f1c40f; /* Spoon Yellow */
+            animation: drive 9s linear infinite; 
+        }
+        .civic-2 { 
+            --car-color: #e74c3c; /* Milano Red */
+            animation: drive 11s linear infinite 4s; 
+            left: 100%;
+        }
+        .civic-3 { 
+            --car-color: #ecf0f1; /* Championship White */
+            animation: drive 8s linear infinite 8s; 
+            left: 100%;
+        }
+
+        /* --- BUDOWA HONDY CIVIC EG HATCHBACK (CSS) --- */
+        
+        /* Dolna część karoserii */
+        .civic-body {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            width: 160px;
+            height: 25px;
+            background-color: var(--car-color);
+            /* Maska z lewej mocno opada, tył z prawej płaski */
+            border-radius: 40px 5px 5px 10px;
+        }
+
+        /* Kabina i dach */
+        .civic-cabin {
+            position: absolute;
+            bottom: 35px;
+            left: 40px;
+            width: 105px;
+            height: 22px;
+            background-color: var(--car-color);
+            border-radius: 80px 15px 0 0;
+        }
+
+        /* Szyby */
+        .civic-window {
+            position: absolute;
+            bottom: 35px;
+            left: 45px;
+            width: 95px;
+            height: 18px;
+            background-color: #111;
+            border-radius: 70px 10px 0 0;
+        }
+
+        /* Słupek B (dzielący szyby) */
+        .civic-pillar {
+            position: absolute;
+            bottom: 35px;
+            left: 95px;
+            width: 10px;
+            height: 18px;
+            background-color: var(--car-color);
+        }
+
+        /* Duckbill Spoiler na tylnej klapie */
+        .civic-spoiler {
+            position: absolute;
+            bottom: 53px;
+            right: 10px;
+            width: 22px;
+            height: 6px;
+            background-color: var(--car-color);
+            border-radius: 5px;
+            transform: rotate(5deg);
+        }
+
+        /* Światła */
+        .headlight {
+            position: absolute;
+            bottom: 25px;
+            left: 2px;
+            width: 8px;
+            height: 10px;
+            background-color: #ffcc00;
+            border-radius: 10px 0 0 10px;
+        }
+
+        .taillight {
+            position: absolute;
+            bottom: 25px;
+            right: 0;
+            width: 8px;
+            height: 14px;
+            background-color: #ff3333;
+            border-radius: 0 5px 5px 0;
+        }
+
+        /* Koła z rotacją */
+        .wheel {
+            position: absolute;
+            bottom: 0;
+            width: 22px;
+            height: 22px;
+            background-color: #111;
+            border-radius: 50%;
+            border: 5px solid #555; /* Felgi */
+            border-top-color: #ccc; /* Akcent żeby było widać kręcenie się kół */
+            animation: spin 0.6s linear infinite;
+        }
+        .wheel-front { left: 22px; }
+        .wheel-rear { right: 22px; }
+        
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <p class="hsrs">HSRS</p>
+        <p class="momentum">Momentum Cars Association</p>
+    </div>
+
+    <div class="center-content">
+        Work in<br>
+        progress. ..<br>
+        Come back soon
+    </div>
+
+    <div class="road"></div>
